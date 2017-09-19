@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 5</title>
+
+    <link rel="stylesheet" href="Main.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+    <script src="Main.js"></script>
+
+</head>
+<body>
+    <div class="Content">
+        <button class="accordion" id="create">Create</button><br>
+        <div class="panel" id="create-panel">
+            <form id="create-form" class="formsytle">
+                <label>Name:</label><br>
+                <input type="text" name="name" value="Enter Value"><br>
+                <br>
+
+                <label>URL:</label><br>
+                <input type="text" name="URL" value="Enter Value"><br>
+                <br>
+
+                <label>Description:</label><br>
+                <input type="text" name="theDesc" value="Enter Value"><br>
+                <br>
+
+                <input type="submit" name="Submit">
+            </form>
+        </div>
+
+        <button class="accordion" id="recall">Recall</button><br>
+        <div class="panel" id="recall-panel">
+            <form id="recall-form1" class="formsytle">
+                <label>ID:</label><br>
+                <input type="text" name="ID" value="-"><br>
+                <br>
+                <label>Name:</label><br>
+                <input type="text" name="name" value="-"><br>
+                <br>
+
+                <input type="submit" name="Submit">
+            </form>
+        </div>
+
+        <button class="accordion" id="update">Update</button><br>
+        <div class="panel" id="update-panel">
+            <form class="formsytle" id="update-form">
+                <label>ID of element to be updated:</label><br>
+                <input type="text" name="ID" value="-"><br>
+                <br>
+                <label>Choose one leave the rest '-'</label>
+                <label>Name:</label><br>
+                <input type="text" name="name" value="-"><br>
+                <br>
+
+                <label>URL:</label><br>
+                <input type="text" name="URL" value="-"><br>
+                <br>
+
+                <label>Description:</label><br>
+                <input type="text" name="theDesc" value="-"><br>
+                <br>
+
+                <input type="submit" name="submit">
+            </form>
+        </div>
+
+        <button class="accordion" id="delete">Delete</button><br>
+        <div class="panel" id="delete-panel">
+            <form id="delete-form" class="formsytle">
+                <label>ID:</label><br>
+                <input type="text" name="ID" value="Enter Value"><br>
+                <br>
+
+                <input type="submit" name="Submit">
+            </form>
+        </div>
+
+        <p class="demostyle" id="demo">Output Area</p>
+
+    </div>
+</body>
+</html>
