@@ -40,43 +40,22 @@ $(document).ready(function() {
         event.preventDefault();
     });
 
-    $('#recall-form1').submit(function(event) {
-
-        var formData= JSON.stringify($(this).serializeObject());
-        console.log(formData);
-
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: "process.php",
-            data: {x:formData},
-            //contentType: "application/json; charset=utf-8",
-            success:function(data) {
-              document.getElementById("demo").innerHTML = data;
-              console.log(data);
-            },
-            error:function(data) {
-              document.getElementById("demo").innerHTML = data;
-              console.log(data);
-            },
-
-        });
-
-        // stop the form from submitting the normal way and refreshing the page
-        event.preventDefault();
-    });
-
     $('#create-form').submit(function(event) {
 
-        var formData=JSON.stringify($(this).serializeObject());
-        console.log(formData);
+        //var formData=JSON.stringify($(this).serializeObject());
+        //console.log(formData);
+
+        var UID = document.getElementById("UID").value
+        var RSS = document.getElementById("RSS").value
+
+        var newObj = {UID: UID, RSS: RSS};
 
         // process the form
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: "process.php",
-            data: {x:formData},
+            url: "http://192.168.1.7:8080",
+            data: JSON.stringify(newObj),
             //contentType: "application/json; charset=utf-8",
             success: function(data){
                 console.log(data);
@@ -91,6 +70,33 @@ $(document).ready(function() {
         // stop the form from submitting the normal way and refreshing the page
         event.preventDefault();
 
+    });
+
+    $('#recall-form').submit(function(event) {
+
+        event.preventDefault();
+        var UID = document.getElementById("UIDGET").value
+        var newObj = {UID: UID};
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            crossDomain:true,
+            url: "http://192.168.1.7:8080?UID="+UID,
+            //contentType: "application/json; charset=utf-8",
+            success:function(data) {
+              document.getElementById("demo").innerHTML = data;
+              console.log(data);
+            },
+            error:function(data) {
+              document.getElementById("demo").innerHTML = data;
+              console.log(data);
+            },
+
+        });
+
+        // stop the form from submitting the normal way and refreshing the page
+        
     });
 
     $('#delete-form').submit(function(event) {
